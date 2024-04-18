@@ -22,8 +22,10 @@ def get_employee_todo_progress(employee_id):
     employee_response = requests.get(employee_url)
     employee_name = employee_response.json()["name"]
 
-    print(f"Employee {employee_name} is done with tasks ({num_done_tasks}/
-          {num_total_tasks}):")
+    print(
+        f"Employee {employee_name} is done with tasks "
+        f"({num_done_tasks}/{num_total_tasks}):"
+        )
     for task in todos_data:
         if task['completed']:
             print(f"\t{task['title']}")
