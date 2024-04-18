@@ -7,6 +7,8 @@ import sys
 
 
 def get_employee_todo_progress(employee_id):
+    '''This method will retrieve the employee's progress and display it'''
+
     base_url = "https://jsonplaceholder.typicode.com"
     todos_url = f"{base_url}/todos?userId={employee_id}"
 
