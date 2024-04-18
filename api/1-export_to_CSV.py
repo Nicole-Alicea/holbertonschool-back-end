@@ -6,18 +6,21 @@ import csv
 import requests
 import sys
 
+
 def export_employee_todo_to_csv(employee_id, employee_name, todos_data):
     filename = f"{employee_id}.csv"
     with open(filename, 'w', newline='') as csvfile:
-        fieldnames = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS', 'TASK_TITLE']
+        fieldnames = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS',
+                      'TASK_TITLE']
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
-        
+
         writer.writeheader()
         for task in todos_data:
             writer.writerow({
                 'USER_ID': employee_id,
                 'USERNAME': employee_name,
-                'TASK_COMPLETED_STATUS': 'Completed' if task['completed'] else 'Incomplete',
+                'TASK_COMPLETED_STATUS': 'Completed' if task['completed']
+                else 'Incomplete',
                 'TASK_TITLE': task['title']
             })
 
@@ -38,6 +41,7 @@ def get_employee_todo_progress(employee_id):
     employee_name = employee_data["name"]
 
     export_employee_todo_to_csv(employee_id, employee_name, todos_data)
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
