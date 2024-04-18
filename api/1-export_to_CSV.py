@@ -26,6 +26,7 @@ def export_employee_todo_to_csv(employee_id, employee_name, todos_data):
 
     print(f"Data exported to {filename}")
 
+
 def get_employee_todo_progress(employee_id):
     base_url = "https://jsonplaceholder.typicode.com"
     todos_url = f"{base_url}/todos?userId={employee_id}"
