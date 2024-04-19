@@ -20,7 +20,7 @@ def get_employee_todo_progress(employee_id):
 
     employee_url = f"{base_url}/users/{employee_id}"
     employee_response = requests.get(employee_url)
-    employee_name = employee_response.json()["name"]
+    employee_name = employee_response.json().get("name")
 
     print(
         f"Employee {employee_name} is done with"

@@ -8,10 +8,12 @@ import sys
 
 
 def export_employee_todo_to_csv(employee_id, employee_name, todos_data):
-    filename = f"{employee_id}.csv"
-    with open(filename, 'w', newline='') as csvfile:
-        fieldnames = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS',
+    filename = f'{employee_id}.csv'
+    fieldnames = ['USER_ID', 'USERNAME', 'TASK_COMPLETED_STATUS',
                       'TASK_TITLE']
+    
+    with open(filename, 'w', newline='') as csvfile:
+        
         writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
 
         writer.writeheader()
